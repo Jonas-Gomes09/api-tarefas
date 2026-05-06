@@ -1,3 +1,4 @@
+// Que será salva no dados/tarefas.json
 export interface Tarefa {
 
     id: number;
@@ -14,6 +15,7 @@ export interface Tarefa {
     
     }
     
+    // POST
     export interface CriarTarefaBody {
     
     titulo: string; // obrigatório
@@ -24,6 +26,7 @@ export interface Tarefa {
     
     }
     
+    // PUT
     export interface AtualizarTarefaBody {
     
     titulo?: string; descricao?: string;
@@ -34,8 +37,11 @@ export interface Tarefa {
     
     }
     
+    // GET - Parâmetro (ID) da requisição
     export interface TarefaParams { id: string; }
     
+    // GET - Filtragem
     export interface FiltroQuery { concluida?: string; prioridade?: string; }
     
+    // ApiResponse
     export interface ApiResponse<T> { sucesso: boolean; dados?: T; erro?: string; erros?: string[]; }
