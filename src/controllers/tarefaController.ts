@@ -43,3 +43,28 @@ res.status(201).json({ sucesso: true, dados: nova });
 } catch { res.status(500).json({ sucesso: false, erro: 'Erro interno' }); }
 
 }
+
+export async function buscarPorId(req: Request, res: Response) {
+    try {
+        let tarefas = await TarefaModel.listarTodas();
+        const ID = Number(req.params.id)
+
+        const busca = tarefas.find(t => t.id === ID)
+
+        if (!busca) {
+            res.status(404).json({sucesso: false, erro: `Não existe nenhuma tarefa com o ID ${ID}`})
+        } else {
+            res.json(busca)
+        }
+    } catch {
+        res.status(500).json({sucesso: false, erro: `Erro interno do servidor`})
+    }
+}
+
+export async function atualizar(req: Request, res: Response) {
+    const id = req.params.id
+    let dadosNovos = await TarefaModel.atualizar
+    try {
+        
+    }
+}
